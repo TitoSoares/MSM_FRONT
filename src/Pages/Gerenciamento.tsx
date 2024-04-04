@@ -14,7 +14,8 @@ function Gerenciamento(){
                 
             <div className="DivGerenciamento">
                 <a className="DivGen1" href="EntradaSaida">
-                    <h1>Entradas e Saidas</h1>{UsuarioLogadoCtx?.idusuario}
+                    <h1>Entradas e Saidas</h1>            
+                    {UsuarioLogadoCtx?.idusuario}
                     <img className="imgGen" src="EntradaSaida_Gerenciamento.png"/>
                 </a>
 

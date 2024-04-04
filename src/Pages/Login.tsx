@@ -28,10 +28,10 @@ function Login(){
 
  
             let json = await api.Logar(login, senha);
- 
-            if (json.status) {
+            
+            if (json.return.ID) {
                 alert('Bem vindo, ' + login);
-                UsuarioLogadoCtx?.setIdUsuario(json.usuario.id);
+                UsuarioLogadoCtx?.setidusuario(json.return.ID);
                 alert(UsuarioLogadoCtx?.idusuario)
                
                 navigate('/Gerenciamento');

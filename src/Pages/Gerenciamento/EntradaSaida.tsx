@@ -6,6 +6,7 @@ import "../../Componentes/estyle/estilonew.css"
 import { UsuarioLogadoContext } from "../../contexts/contextAuth";
 
 
+
 function EntradaSaida(){
 
     const [operacao, setOperacao] = useState('');
@@ -19,19 +20,19 @@ function EntradaSaida(){
         alert(operacao);
         alert(valor);
         alert(UsuarioLogadoCtx?.idusuario);
-   
+        const idUsuarioTratado: string = UsuarioLogadoCtx?.idusuario ?? '';
 
-        // let json = await api.AdiconarOperacao(operacao, valor, idUsuario);
-        // alert(operacao);
-        // alert(valor);
-        // alert(UsuarioLogadoCtx?.idusuario);
+        let json = await api.AdiconarOperacao(operacao, valor, idUsuarioTratado);
+        alert(operacao);
+        alert(valor);
+        alert(idUsuarioTratado);
 
-        // if (json.id) {
-        //     alert('Operação Adicionado com sucesso!')    
+        if (json.id) {
+            alert('Operação Adicionado com sucesso!')    
 
-        // } else {
-        //     alert('Falha ao adicionar Operação ' + json.message)
-        // }        
+        } else {
+            alert('Falha ao adicionar Operação ' + json.message)
+        }        
     }  
 
     return(           

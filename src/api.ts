@@ -5,11 +5,11 @@ export const api = {
         const response = await fetch('http://localhost:3010/usuarios', {
             method: 'POST',
             body: JSON.stringify({
-                nome: nome,
-                email: email,
-                cpf: cpf,
-                cnpj: cnpj,
-                senha: senha,
+                NOME: nome,
+                EMAIL: email,
+                CPF: cpf,
+                CNPJ: cnpj,
+                SENHA: senha,
             }),
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -28,8 +28,8 @@ export const api = {
                 method: 'POST',
                 body: JSON.stringify
                 ({        
-                   email:username, 
-                   senha:password 
+                   EMAIL:username, 
+                   SENHA:password 
                 }),                  
                 headers: {              
                     'Content-Type': 'application/json; charset=utf-8'

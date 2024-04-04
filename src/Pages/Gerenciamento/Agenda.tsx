@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useOutletContext } from "react-router-dom";
 import BarraLateral from "../../Componentes/BarraLateral"
 import FuncaoCabecalho from "../../Componentes/Cabecalho"
 import "../../Componentes/estyle/estilonew.css" 
+import { UsuarioLogadoContext } from "../../contexts/contextAuth";
 
 function Agenda(){
 
+    const UsuarioLogadoCtx = useContext(UsuarioLogadoContext);
     // const [events, setEvents] = useState([]);
     // const [eventInput, setEventInput] = useState('');
   
@@ -25,6 +28,7 @@ function Agenda(){
     return(
         <div className="DivTela">
             <FuncaoCabecalho/>
+            {UsuarioLogadoCtx?.idusuario}
             
             {/* <div className="bodyuuu">
                  <BarraLateral/>

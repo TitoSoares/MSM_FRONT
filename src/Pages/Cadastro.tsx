@@ -1,17 +1,18 @@
 import FuncaoCabecalho from "../Componentes/Cabecalho"
 import "../Componentes/estyle/estilonew.css"
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { api } from "../api";
 
 function Cadastro(){
 
+    const navigate = useNavigate();
+    const [msgApi, setmsgApi] = useState('');
     const [nome, setNome]=useState("")
     const [email, setEmail]=useState("")
     const [cpf, setCpf]=useState("")
     const [cnpj, setCnpj]=useState("")
-    const [data, setData]=useState("")
     const [senha, setSenha]=useState("")
-    const [senhaConfirmacao, setSenhaConfirmacao]=useState("")
     
     function handleNomeInput(event: React.ChangeEvent<HTMLInputElement>) {
         setNome(event.target.value);
@@ -28,11 +29,22 @@ function Cadastro(){
     function handleSenhaInput(event: React.ChangeEvent<HTMLInputElement>) {
         setSenha(event.target.value);
     }
-    function handleSenhaConfirmacaoInput(event: React.ChangeEvent<HTMLInputElement>) {
-        setSenhaConfirmacao(event.target.value);
-    }
 
-    
+    const Cadastrar = async () => {
+        {
+
+ 
+            let json = await api.CriarConta(nome, email, cpf, cnpj, senha);
+ 
+            if (json.return.ID) {
+                alert('Conta Cadastrado');
+               
+                navigate('/Login');
+            } else {
+                setmsgApi(json.message);
+            }      
+        }
+    }
 
     return(
 
@@ -71,13 +83,8 @@ function Cadastro(){
                     <label className="LabelCadastro">Senha:</label>
                     <input className="InputCadastro" type="Senha" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
                 </div>
-
-                <div className="DivInputCadastro">
-                    <label className="LabelCadastro">Repita sua senha:</label>
-                    <input className="InputCadastro" type="SenhaConfirmacao" placeholder="Digite novamente sua senha" onChange={handleSenhaConfirmacaoInput}/>
-                </div>
         
-                <button className="ButtonCadastro">Cadastrar</button>
+                <button className="ButtonCadastro" onClick={Cadastrar}>Cadastrar</button>
 
             </div>
 
