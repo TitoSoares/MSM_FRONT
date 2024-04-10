@@ -423,7 +423,7 @@ body::-webkit-scrollbar-thumb {
         border: 1px solid #ddd;
         text-align: center;
         border-radius: 10px;
-        height: 300px;
+        height: 280px;
         width: 210px;
         text-decoration: none; 
         color: #333; 
@@ -445,6 +445,33 @@ body::-webkit-scrollbar-thumb {
         line-height: 1.6;
     }
 
+    .TxtFuncao{
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-left: 20%;
+        margin-right: 20px;
+    }
+
+    .ButtonFuncao{
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 10px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-left: 46%;
+        margin-top: 10px;
+      }
+  
+      .ButtonFuncao:hover {
+        background-color: #2ecc71;
+      }
 /* ==================================== *//* ==================================== *//* ==================================== */
 
 

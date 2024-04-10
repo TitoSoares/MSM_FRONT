@@ -33,25 +33,25 @@ function FuncaoGov(){
                     <p className="TxtDescricao">Certidões e comprovantes do MEI são documentos que atestam sua situação fiscal e regularidade. Certidões, emitidas por órgãos governamentais, confirmam a conformidade em áreas específicas, como tributos e débitos trabalhistas. Comprovantes, como o CCMEI, servem como evidência da condição de MEI. Essenciais para cumprir requisitos legais e participar de transações comerciais.</p>
                 </a>
 
-                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/solucoes-financeiras-para-o-seu-negocio-credmei" className="FuncaoGov">
+                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/contratacao-de-empregado" className="FuncaoGov">
                     <h2 className="TxtTitulo">Contratação de empregado</h2>
                     <p className="TxtDescricao">O (MEI) pode contratar um único empregado. O salário deve ser equivalente ao salário mínimo ou piso da categoria, com recolhimento de encargos como INSS e FGTS. É necessário realizar o registro formal do empregado, cumprir obrigações trabalhistas e previdenciárias, e utilizar o sistema e-Social para registro de informações. Orientação contábil ou jurídica é recomendada para garantir conformidade com as normas.</p>
                 </a>
 
-                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/contratacao-de-empregado" className="FuncaoGov">
+                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/cadastro-de-atividade-turistica-cadastur" className="FuncaoGov">
                     <h2 className="TxtTitulo">Registro no Cadastur</h2>
                     <p className="TxtDescricao">O Registro no Cadastur é uma obrigação para prestadores de serviços turísticos no Brasil, mantido pelo Ministério do Turismo. Abrange agências de turismo, meios de hospedagem, guias, transportadoras e organizadoras de eventos. O cadastro visa regulamentar e fiscalizar o setor, assegurando qualidade e segurança para os turistas. O não cumprimento pode resultar em penalidades.</p>
                 </a>
 
-                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/cadastro-de-atividade-turistica-cadastur" className="FuncaoGov">
+                <a target="_blank" href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei/baixa-de-mei" className="FuncaoGov">
                     <h2 className="TxtTitulo">Baixa da Empresa</h2>
                     <p className="TxtDescricao">A baixa da empresa MEI é feita, preenchendo formulários e emitindo o DAS para pagamento. Após processamento, obtém-se o Certificado de Baixa, confirmando o encerramento das atividades. A função é encerrar formalmente as atividades do MEI, assegurando conformidade legal. Recomenda-se a orientação de um contador para procedimentos corretos.</p>
                 </a>
                 
             </div>
 
-            <label className="TxtPasso">Login</label>
-                <br /><a href="/Login" className="ButtonTutorial">Login</a>
+            <label className="TxtFuncao">Agora sabendo das principais funções você pode aproveitar das nossas funcionalidades do site, mas primeiro vamos fazer seu cadastro:</label>
+            <br/><a href="/cadastro" className="ButtonFuncao">Faça seu Cadastro</a>
 
         </div>
     )

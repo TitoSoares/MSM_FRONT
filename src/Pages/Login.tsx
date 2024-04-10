@@ -32,8 +32,6 @@ function Login(){
             if (json.return.ID) {
                 alert('Bem vindo, ' + login);
                 UsuarioLogadoCtx?.setidusuario(json.return.ID);
-                alert(UsuarioLogadoCtx?.idusuario)
-               
                 navigate('/Gerenciamento');
             } else {
                 setmsgApi(json.message);
@@ -43,7 +41,7 @@ function Login(){
     
 
     const AcessoDireto = () => {
-     // UsuarioLogadoCtx?.setName(login);
+        UsuarioLogadoCtx?.setidusuario('54153135153135');
        navigate('/Gerenciamento');
     }
 

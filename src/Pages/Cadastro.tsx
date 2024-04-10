@@ -36,7 +36,7 @@ function Cadastro(){
  
             let json = await api.CriarConta(nome, email, cpf, cnpj, senha);
  
-            if (json.return.ID) {
+            if (json.ID) {
                 alert('Conta Cadastrado');
                
                 navigate('/Login');
@@ -61,27 +61,27 @@ function Cadastro(){
                 
                 <div className="DivInputCadastro">
                     <label className="LabelCadastro">Nome:</label>
-                    <input className="InputCadastro" type="text" placeholder="Digite seu nome" onChange={handleNomeInput}/>
+                    <input className="InputCadastro" placeholder="Digite seu nome" onChange={handleNomeInput}/>
                 </div>
 
                 <div className="DivInputCadastro">
                     <label className="LabelCadastro">Email:</label>
-                    <input className="InputCadastro" type="email" placeholder="Digite seu email" onChange={handleEmailInput}/>
+                    <input className="InputCadastro" placeholder="Digite seu email" onChange={handleEmailInput}/>
                 </div>
 
                 <div className="DivInputCadastro">
                     <label className="LabelCadastro">CPF:</label>
-                    <input className="InputCadastro" type="CPF" placeholder="Digite seu CPF" onChange={handleCpfInput}/>
+                    <input className="InputCadastro" placeholder="Digite seu CPF" onChange={handleCpfInput}/>
                 </div>
 
                 <div className="DivInputCadastro">
                     <label className="LabelCadastro">CNPJ:</label>
-                    <input className="InputCadastro" type="CPNJ"placeholder="Digite seu CNPJ" onChange={handleCnpjInput}/>
+                    <input className="InputCadastro" placeholder="Digite seu CNPJ" onChange={handleCnpjInput}/>
                 </div>
 
                 <div className="DivInputCadastro">
                     <label className="LabelCadastro">Senha:</label>
-                    <input className="InputCadastro" type="Senha" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
+                    <input className="InputCadastro" type="password" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
                 </div>
         
                 <button className="ButtonCadastro" onClick={Cadastrar}>Cadastrar</button>

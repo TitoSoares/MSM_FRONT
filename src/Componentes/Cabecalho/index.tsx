@@ -20,11 +20,10 @@ function FuncaoCabecalho(){
                     <div className="ItemCabecalho"><Link className="LinkCabecalho" to="/gov">Funções Gov</Link></div>
 
                     { UsuarioLogadoCtx?.idusuario &&
-
-                    <div className="ItemCabecalho"><Link className="LinkCabecalho" to="/login">Login</Link></div>
+                    <div className="ItemCabecalho"><Link className="LinkCabecalho" to="/gen">Gerenciamento</Link></div>
                     }
                     { !UsuarioLogadoCtx?.idusuario &&
-                    <div className="ItemCabecalho"><a href="#"><Link to="/gen">Gerenciamento</Link></a></div>
+                    <div className="ItemCabecalho"><Link className="LinkCabecalho" to="/login">Login</Link></div>
                     }
                     
                 </div>

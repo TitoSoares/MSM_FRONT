@@ -11,15 +11,14 @@ export const UsuarioLogadoContext = createContext<ContextType | null>(null);
 export const UsuarioLogadoProvider = ({ children }: { children: ReactNode }) => {
     
       const [idusuario, setidusuario] = useState(() => {
-        const storedName = localStorage.getItem("ContextName");
+        const storedName = sessionStorage.getItem("ContextName");
         return storedName ? storedName : "";
 
     });     
 
     useEffect(() => {        
         if (idusuario !== '') {
-           localStorage.setItem('ContextName', idusuario);
-           //alert('usuario ' + name)
+            sessionStorage.setItem('ContextName', idusuario);
         }   
     } ,[idusuario])
 

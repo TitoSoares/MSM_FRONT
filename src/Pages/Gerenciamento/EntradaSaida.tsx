@@ -17,16 +17,9 @@ function EntradaSaida(){
   
     const handleAddOperation = async () => {   
 
-        alert(operacao);
-        alert(valor);
-        alert(UsuarioLogadoCtx?.idusuario);
         const idUsuarioTratado: string = UsuarioLogadoCtx?.idusuario ?? '';
 
         let json = await api.AdiconarOperacao(operacao, valor, idUsuarioTratado);
-        alert(operacao);
-        alert(valor);
-        alert(idUsuarioTratado);
-
         if (json.id) {
             alert('Operação Adicionado com sucesso!')    
 
