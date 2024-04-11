@@ -2,7 +2,7 @@
 export const api = {
 
     CriarConta: async (nome: string, email: string, cpf: string, cnpj: string, senha: string) => {
-        const response = await fetch('http://localhost:3010/usuarios', {
+        const response = await fetch('https://msm-api.onrender.com/usuarios', {
             method: 'POST',
             body: JSON.stringify({
                 NOME: nome,
@@ -23,7 +23,7 @@ export const api = {
     Logar: async(username:string, password:String) => {
         {            
            
-            let response = await fetch('http://localhost:3010/usuarios/login',
+            let response = await fetch('https://msm-api.onrender.com/usuarios/login',
             {              
                 method: 'POST',
                 body: JSON.stringify
@@ -47,7 +47,7 @@ export const api = {
     AdiconarOperacao: async(sTipo:String, fValor:String, sIdusuario:String) => {
         {            
            
-            let response = await fetch('http://localhost:3010/entrada_saida',
+            let response = await fetch('https://msm-api.onrender.com/entrada_saida',
             {              
                 method: 'POST',
                 body: JSON.stringify

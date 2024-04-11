@@ -14,7 +14,7 @@ function Agenda(){
     return(
         <div className="DivTela">
             <FuncaoCabecalho/>
-            {/* {UsuarioLogadoCtx?.idusuario} */}
+
             
             <div className="bodyy">
                  <BarraLateral/>

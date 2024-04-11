@@ -524,7 +524,7 @@ body::-webkit-scrollbar-thumb {
         justify-content: center;
     }
 
-    .DivGen1{
+    /* .DivGen1{
         background-color: #2ecc71;
         color: #fff;
         text-align: center;
@@ -533,6 +533,19 @@ body::-webkit-scrollbar-thumb {
         height: 300px;
         margin: 10px;
         margin-top: 45px;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    } */
+
+    .DivGen1{
+        background-color: #2ecc71;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        width: 81.3%;
+        height: 300px;
+        margin: 10px;
         border-radius: 10px;
         text-decoration: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -566,44 +579,48 @@ body::-webkit-scrollbar-thumb {
 /* ==================================== *//* ==================================== *//* ==================================== */
 
 .BarraLateral {
-    width: 60px;
+    height: 100%;
+    width: 120px;
     background-color: #2ecc71;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    height: 92vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease; 
+}
+/* height: 92vh; */
+.BarraLateral:hover {
+    width: 200px;
 }
 
 .BarraLateralTitulo{
-    font-size: 18px;
-    margin-bottom: 20px;
     color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .MenuBarraLateral {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 .ItemBarraLateral {
-    margin-bottom: 10px;
+    text-align: center;
 }
 
 .LinkLateral{
-    text-decoration: none;
     color: #fff;
-    font-size: 10px;
-    transition: color 0.3s;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
+
 .LinkLateral:hover {
-    color: #3498db;
+    background-color: #3498db;
 }
 
 /* ==================================== *//* ==================================== *//* ==================================== */
@@ -903,11 +920,12 @@ footer {
 
 /* ==================================== *//* ==================================== *//* ==================================== */
 
-bodyo {
+.bodyo {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    width: 10000px;
 }
 
 header {
@@ -996,4 +1014,11 @@ header {
 
 .edit-profile-container input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+/* ==================================== *//* ==================================== *//* ==================================== */
+
+.bodyBarra{
+    display: flex;
+    flex-direction: row;
 }

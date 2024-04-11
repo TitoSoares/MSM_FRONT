@@ -34,10 +34,10 @@ function Gerenciamento(){
                         <img className="imgGen" src="EntradaSaida_Gerenciamento.png"/>
                     </a>
 
-                    <a className="DivGen1" href="Agenda">
+                    {/* <a className="DivGen1" href="Agenda">
                         <h1>Agenda</h1>
                         <img className="imgGen" src="Agenda_Gerenciamento.png"/>
-                    </a>
+                    </a> */}
                 </div>
 
                 <div className="DivGerenciamento">

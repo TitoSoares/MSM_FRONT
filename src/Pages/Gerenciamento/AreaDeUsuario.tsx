@@ -1,44 +1,80 @@
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BarraLateral from "../../Componentes/BarraLateral"
 import FuncaoCabecalho from "../../Componentes/Cabecalho"
 import "../../Componentes/estyle/estilonew.css" 
+import { UsuarioLogadoContext } from "../../contexts/contextAuth";
 
 function AreaDeUsuario(){
+    
+    const UsuarioLogadoCtx = useContext(UsuarioLogadoContext);
+
+    const navigate = useNavigate();
+    const [msgApi, setmsgApi] = useState('');
+    const [nome, setNome]=useState("")
+    const [email, setEmail]=useState("")
+    const [senha, setSenha]=useState("")
+
+    function handleNomeInput(event: React.ChangeEvent<HTMLInputElement>) {
+        setNome(event.target.value);
+    }
+    function handleEmailInput(event: React.ChangeEvent<HTMLInputElement>) {
+        setEmail(event.target.value);
+    }
+    function handleSenhaInput(event: React.ChangeEvent<HTMLInputElement>) {
+        setSenha(event.target.value);
+    }
+
+    const handleLogout = () => {
+        sessionStorage.setItem('ContextName', '');
+        UsuarioLogadoCtx?.setidusuario('')
+        navigate('/')
+    }
+
     return(
+        
         <div className="DivTela">
             <FuncaoCabecalho/>
-            <div className="bodyo">
-                <div className="container">
-                    <section className="user-info">
-                        <h2>Detalhes do Usuário</h2>
-                        <p><strong>Nome:</strong> Fulano de Tal</p>
-                        <p><strong>Email:</strong> fulano@example.com</p>
-                        <p><strong>Nível de Acesso:</strong> Usuário Regular</p>
-                    </section>
-                    <section className="user-actions">
-                        <h2>Ações Disponíveis</h2>
-                        <ul>
-                            <li><a href="#">Editar Perfil</a></li>
-                            <li><a href="#">Alterar Senha</a></li>
-                            <li><a href="#">Histórico de Compras</a></li>
-                            <li><a href="#">Sair</a></li>
-                        </ul>
-                    </section>
-                </div>
+            <div className="bodyBarra">
+                <BarraLateral/>
+                <div className="bodyo">
+                    <div className="container">
+                        <section className="user-info">
+                            <h2>Detalhes do Usuário</h2>
+                            <p><strong>Nome:</strong> Fulano de Tal</p>
+                            <p><strong>Email:</strong> fulano@example.com</p>
+                            <p><strong>CPF:</strong> TESTE</p>
+                            <p><strong>CNPJ:</strong> TESTE</p>
+                            <button className="ButtonCadastro" onClick={handleLogout}>Sair</button>
+                        </section>
 
-                <div className="edit-profile-container">
-                    <h2>Editar Perfil</h2>
-                    <form action="#" method="post">
-                        <label>Nome:</label>
-                        <input type="text" id="name" name="name" value="Fulano de Tal" required/>
+                        <section className="user-info">
+                            <div className="DivCadastro">
 
-                        <label>Email:</label>
-                        <input type="email" id="email" name="email" value="fulano@example.com" required/>
+                                Alterar cadastro <br /><br />
+                        
+                                <div className="DivInputCadastro">
+                                    <label className="LabelCadastro">Nome:</label>
+                                    <input className="InputCadastro" placeholder="Digite seu nome" onChange={handleNomeInput}/>
+                                </div>
 
-                        <label>Nova Senha:</label>
-                        <input type="password" id="password" name="password"/>
+                                <div className="DivInputCadastro">
+                                    <label className="LabelCadastro">Email:</label>
+                                    <input className="InputCadastro" placeholder="Digite seu email" onChange={handleEmailInput}/>
+                                </div>
 
-                        <input type="submit" value="Salvar Alterações"/>
-                    </form>
+                                <div className="DivInputCadastro">
+                                    <label className="LabelCadastro">Senha:</label>
+                                    <input className="InputCadastro" type="password" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
+                                </div>
+
+                                <button className="ButtonCadastro">Alterar</button>
+
+                           </div>
+                           </section>
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
