@@ -35,13 +35,15 @@ function Cadastro(){
 
  
             let json = await api.CriarConta(nome, email, cpf, cnpj, senha);
+            console.log(json)
  
-            if (json.ID) {
+            if (json.id) {
                 alert('Conta Cadastrado');
                
                 navigate('/Login');
             } else {
                 setmsgApi(json.message);
+                alert(msgApi);
             }      
         }
     }
