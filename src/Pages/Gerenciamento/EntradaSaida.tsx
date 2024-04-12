@@ -20,6 +20,7 @@ function EntradaSaida(){
         const idUsuarioTratado: string = UsuarioLogadoCtx?.idusuario ?? '';
 
         let json = await api.AdiconarOperacao(operacao, valor, idUsuarioTratado);
+        console.log(json)
         if (json.id) {
             alert('Operação Adicionado com sucesso!')    
 

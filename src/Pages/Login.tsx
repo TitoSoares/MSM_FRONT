@@ -28,6 +28,7 @@ function Login(){
 
  
             let json = await api.Logar(login, senha);
+            console.log(json)
             
             if (json.return.ID) {
                 alert('Bem vindo, ' + login);
