@@ -33,6 +33,7 @@ function Login(){
             if (json.return.ID) {
                 alert('Bem vindo, ' + login);
                 UsuarioLogadoCtx?.setidusuario(json.return.ID);
+                UsuarioLogadoCtx?.setidusuario(json.return.ID);
                 navigate('/Gerenciamento');
             } else {
                 setmsgApi(json.message);
