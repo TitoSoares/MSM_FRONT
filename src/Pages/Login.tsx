@@ -25,18 +25,20 @@ function Login(){
 
     const RealizarLogin = async () => {
         {
-
- 
             let json = await api.Logar(login, senha);
             console.log(json)
             
             if (json.return.ID) {
-                alert('Bem vindo, ' + login);
+                alert('Seja bem vindo, ' + json.return.NOME + '.');
                 UsuarioLogadoCtx?.setidusuario(json.return.ID);
-                UsuarioLogadoCtx?.setidusuario(json.return.ID);
+                UsuarioLogadoCtx?.setnome(json.return.NOME);
+                UsuarioLogadoCtx?.setemail(json.return.EMAIL);
+                UsuarioLogadoCtx?.setcpf(json.return.CPF);
+                UsuarioLogadoCtx?.setcnpj(json.return.CNPJ);
                 navigate('/Gerenciamento');
             } else {
                 setmsgApi(json.message);
+                alert(msgApi)
             }        
         }
     }
@@ -73,8 +75,8 @@ function Login(){
                     <img src="Login2.png" className="ImgRightLogin"/>
 
                     
-                    <input placeholder="Insira seu login" type="text"  value={login} onChange={handleLoginInput} className="InputLogin"></input>
-                    <input placeholder="Insira sua senha" type="text" value={senha} onChange={handleSenhaInput} className="InputLogin"></input>
+                    <input placeholder="Insira seu login" value={login} onChange={handleLoginInput} className="InputLogin"></input>
+                    <input placeholder="Insira sua senha" type="password" value={senha} onChange={handleSenhaInput} className="InputLogin"></input>
 
                     <br />
                     <div className="DivBotoesLogin">

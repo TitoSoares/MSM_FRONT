@@ -29,8 +29,86 @@ export const api = {
                 body: JSON.stringify
                 ({        
                    EMAIL:username, 
-                   SENHA:password 
+                   SENHA:password
                 }),                  
+                headers: {              
+                    'Content-Type': 'application/json; charset=utf-8'
+                    }                
+               
+             }  
+             );
+            let json = await response.json();        
+   
+            console.log(json);
+            return json;
+        }
+    },
+
+    Alterar: async(ID:string, NOME:string, SENHA:string, EMAIL:string) => {
+        {     
+            let req = {};
+
+
+            if (NOME) {
+                req = {NOME:NOME}
+            }
+            else if (SENHA) {
+                req = {SENHA:SENHA}
+            }
+            else if (EMAIL) {
+                req = {EMAIL:EMAIL}
+            }
+
+            else if (NOME && SENHA) {
+                req = {NOME:NOME, 
+                       SENHA:SENHA}
+            }
+            else if (NOME && EMAIL) {
+                req = {NOME:NOME, 
+                       EMAIL:EMAIL}
+            }
+
+            else if (SENHA && EMAIL) {
+                req = {SENHA:SENHA, 
+                       EMAIL:EMAIL}
+            }
+
+            else if (SENHA && EMAIL && NOME) {
+                req = {NOME:NOME, 
+                       EMAIL:EMAIL, 
+                       SENHA:SENHA,}
+            }
+           
+            
+
+            let response = await fetch('https://msm-api.onrender.com/usuarios/' + ID,
+            {              
+                method: 'PUT',
+                body: JSON.stringify
+                (        
+                    req
+                ),                  
+                headers: {              
+                    'Content-Type': 'application/json; charset=utf-8'
+                    }                
+               
+             }  
+             );
+            let json = await response.json();        
+   
+            console.log(json);
+            return json;
+        }
+    },
+
+    Excluir: async(ID:string) => {
+        {            
+           
+            let response = await fetch('https://msm-api.onrender.com/usuarios/' + ID,
+            {              
+                method: 'DELETE',
+                body: JSON.stringify
+                ({}),                  
                 headers: {              
                     'Content-Type': 'application/json; charset=utf-8'
                     }                

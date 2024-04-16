@@ -42,7 +42,7 @@ function EntradaSaida(){
                         <option value="false">Saida</option>
                         </select>
                         
-                        <input type="currency" placeholder="Digite um valor" value={valor} onChange={(e) => setValor(e.target.value)}/>
+                        <input type="number" placeholder="Digite um valor" value={valor} onChange={(e) => setValor(e.target.value)}/>
                         
                         <button onClick={handleAddOperation}>Enviar</button>
                     </div>

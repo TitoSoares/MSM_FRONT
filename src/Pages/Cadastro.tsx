@@ -7,7 +7,7 @@ import { api } from "../api";
 function Cadastro(){
 
     const navigate = useNavigate();
-    const [msgApi, setmsgApi] = useState('');
+
     const [nome, setNome]=useState("")
     const [email, setEmail]=useState("")
     const [cpf, setCpf]=useState("")
@@ -42,8 +42,7 @@ function Cadastro(){
                
                 navigate('/Login');
             } else {
-                setmsgApi(json.message);
-                alert(msgApi);
+                alert(json.message);
             }      
         }
     }

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../api";
 import BarraLateral from "../../Componentes/BarraLateral"
 import FuncaoCabecalho from "../../Componentes/Cabecalho"
 import "../../Componentes/estyle/estilonew.css" 
@@ -8,12 +9,13 @@ import { UsuarioLogadoContext } from "../../contexts/contextAuth";
 function AreaDeUsuario(){
     
     const UsuarioLogadoCtx = useContext(UsuarioLogadoContext);
+    
 
     const navigate = useNavigate();
-    const [msgApi, setmsgApi] = useState('');
     const [nome, setNome]=useState("")
     const [email, setEmail]=useState("")
     const [senha, setSenha]=useState("")
+    const id: string = UsuarioLogadoCtx?.idusuario ?? '';
 
     function handleNomeInput(event: React.ChangeEvent<HTMLInputElement>) {
         setNome(event.target.value);
@@ -23,6 +25,35 @@ function AreaDeUsuario(){
     }
     function handleSenhaInput(event: React.ChangeEvent<HTMLInputElement>) {
         setSenha(event.target.value);
+    }
+
+    const AlterarLogin = async () => {
+        {
+            let json = await api.Alterar(id, nome, senha, email);
+            console.log(json)
+            
+            if (json.return) {
+                alert('Usuario Cadastrado');
+            } else {
+                alert(json.message);
+            }        
+        }
+    }
+
+    const Excluir = async () => {
+        {
+            let json = await api.Excluir(id);
+            console.log(json)
+            
+            if (json.return) {
+                alert('Usuario Removido');
+                sessionStorage.setItem('ContextName', '');
+                UsuarioLogadoCtx?.setidusuario('')
+                navigate('/')
+            } else {
+                alert(json.message);
+            }        
+        }
     }
 
     const handleLogout = () => {
@@ -41,17 +72,18 @@ function AreaDeUsuario(){
                     <div className="container">
                         <section className="user-info">
                             <h2>Detalhes do Usuário</h2>
-                            <p><strong>Nome:</strong> Fulano de Tal</p>
-                            <p><strong>Email:</strong> fulano@example.com</p>
-                            <p><strong>CPF:</strong> TESTE</p>
-                            <p><strong>CNPJ:</strong> TESTE</p>
-                            <button className="ButtonCadastro" onClick={handleLogout}>Sair</button>
+                            <p><strong>Nome:</strong> {UsuarioLogadoCtx?.nome}</p>
+                            <p><strong>Email:</strong> {UsuarioLogadoCtx?.email}</p>
+                            <p><strong>CPF:</strong> {UsuarioLogadoCtx?.cpf}</p>
+                            <p><strong>CNPJ:</strong> {UsuarioLogadoCtx?.cnpj}</p>
+                            <button className="ButtonArea" onClick={handleLogout}>Sair</button>
+                            <button className="ButtonArea1" onClick={Excluir}>Excluir Conta</button>
                         </section>
 
                         <section className="user-info">
                             <div className="DivCadastro">
 
-                                Alterar cadastro <br /><br />
+                            <p><strong>Alterar cadastro</strong></p> <br />
                         
                                 <div className="DivInputCadastro">
                                     <label className="LabelCadastro">Nome:</label>
@@ -68,7 +100,7 @@ function AreaDeUsuario(){
                                     <input className="InputCadastro" type="password" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
                                 </div>
 
-                                <button className="ButtonCadastro">Alterar</button>
+                                <button className="ButtonCadastro" onClick={AlterarLogin}>Alterar</button>
 
                            </div>
                            </section>
