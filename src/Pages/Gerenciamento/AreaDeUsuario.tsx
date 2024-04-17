@@ -17,6 +17,10 @@ function AreaDeUsuario(){
     const [senha, setSenha]=useState("")
     const id: string = UsuarioLogadoCtx?.idusuario ?? '';
 
+    function handleClick(){
+        navigate('/login');
+    }
+
     function handleNomeInput(event: React.ChangeEvent<HTMLInputElement>) {
         setNome(event.target.value);
     }
@@ -63,52 +67,64 @@ function AreaDeUsuario(){
     }
 
     return(
-        
-        <div className="DivTela">
-            <FuncaoCabecalho/>
-            <div className="bodyBarra">
-                <BarraLateral/>
-                <div className="bodyo">
-                    <div className="container">
-                        <section className="user-info">
-                            <h2>Detalhes do Usuário</h2>
-                            <p><strong>Nome:</strong> {UsuarioLogadoCtx?.nome}</p>
-                            <p><strong>Email:</strong> {UsuarioLogadoCtx?.email}</p>
-                            <p><strong>CPF:</strong> {UsuarioLogadoCtx?.cpf}</p>
-                            <p><strong>CNPJ:</strong> {UsuarioLogadoCtx?.cnpj}</p>
-                            <button className="ButtonArea" onClick={handleLogout}>Sair</button>
-                            <button className="ButtonArea1" onClick={Excluir}>Excluir Conta</button>
-                        </section>
+        <div>
+            { !UsuarioLogadoCtx?.idusuario &&
+            <div className="DivAcessoNegado">
 
-                        <section className="user-info">
-                            <div className="DivCadastro">
+                <FuncaoCabecalho/>
+                <div className="DivButton404"><button className="ButtonNotFound" onClick={handleClick}>Login</button></div>
 
-                            <p><strong>Alterar cadastro</strong></p> <br />
+            </div>
+            }
+
+            { UsuarioLogadoCtx?.idusuario &&
+            <div className="DivTela">
+                <FuncaoCabecalho/>
+                <div className="bodyBarra">
+                    <BarraLateral/>
+                    <div className="bodyo">
+                        <div className="container">
+                            <section className="user-info">
+                                <h2>Detalhes do Usuário</h2>
+                                <p><strong>Nome:</strong> {UsuarioLogadoCtx?.nome}</p>
+                                <p><strong>Email:</strong> {UsuarioLogadoCtx?.email}</p>
+                                <p><strong>CPF:</strong> {UsuarioLogadoCtx?.cpf}</p>
+                                <p><strong>CNPJ:</strong> {UsuarioLogadoCtx?.cnpj}</p>
+                                <button className="ButtonArea" onClick={handleLogout}>Sair</button>
+                                <button className="ButtonArea1" onClick={Excluir}>Excluir Conta</button>
+                            </section>
+
+                            <section className="user-info">
+                                <div className="DivCadastro">
+
+                                <p><strong>Alterar cadastro</strong></p> <br />
+                            
+                                    <div className="DivInputCadastro">
+                                        <label className="LabelCadastro">Nome:</label>
+                                        <input className="InputCadastro" placeholder="Digite seu nome" onChange={handleNomeInput}/>
+                                    </div>
+
+                                    <div className="DivInputCadastro">
+                                        <label className="LabelCadastro">Email:</label>
+                                        <input className="InputCadastro" placeholder="Digite seu email" onChange={handleEmailInput}/>
+                                    </div>
+
+                                    <div className="DivInputCadastro">
+                                        <label className="LabelCadastro">Senha:</label>
+                                        <input className="InputCadastro" type="password" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
+                                    </div>
+
+                                    <button className="ButtonCadastro" onClick={AlterarLogin}>Alterar</button>
+
+                            </div>
+                            </section>
+                        </div>
+
                         
-                                <div className="DivInputCadastro">
-                                    <label className="LabelCadastro">Nome:</label>
-                                    <input className="InputCadastro" placeholder="Digite seu nome" onChange={handleNomeInput}/>
-                                </div>
-
-                                <div className="DivInputCadastro">
-                                    <label className="LabelCadastro">Email:</label>
-                                    <input className="InputCadastro" placeholder="Digite seu email" onChange={handleEmailInput}/>
-                                </div>
-
-                                <div className="DivInputCadastro">
-                                    <label className="LabelCadastro">Senha:</label>
-                                    <input className="InputCadastro" type="password" placeholder="Digite sua senha" onChange={handleSenhaInput}/>
-                                </div>
-
-                                <button className="ButtonCadastro" onClick={AlterarLogin}>Alterar</button>
-
-                           </div>
-                           </section>
                     </div>
-
-                    
                 </div>
             </div>
+            }
         </div>
     )
 }

@@ -11,16 +11,16 @@ function Gerenciamento(){
 
     const navigate = useNavigate();
     function handleClick(){
-        navigate('/');
+        navigate('/login');
     }
 
     return(
         <div>        
             { !UsuarioLogadoCtx?.idusuario &&
-            <div className="DivNotFound">
+            <div className="DivAcessoNegado">
 
                 <FuncaoCabecalho/>
-                <div className="DivButton404"><button className="ButtonNotFound" onClick={handleClick}>Home</button></div>
+                <div className="DivButton404"><button className="ButtonNotFound" onClick={handleClick}>Login</button></div>
 
             </div>
             }

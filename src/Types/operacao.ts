@@ -1,6 +1,5 @@
 export type OperacaoType={
-    id:string
-    entradas:number
-    saidas:number
-    liquido:number
+    ID:string
+    TIPO:boolean
+    VALOR:number
 }

@@ -511,6 +511,14 @@ body::-webkit-scrollbar-thumb {
         background-color: #2ecc71;
     }
 
+    .DivAcessoNegado{
+        background-image:url("../../../public/acessonegado.png");
+        height:100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
 /* ==================================== *//* ==================================== *//* ==================================== */
 
 

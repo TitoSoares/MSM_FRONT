@@ -122,7 +122,7 @@ export const api = {
         }
     },
 
-    AdiconarOperacao: async(sTipo:String, fValor:String, sIdusuario:String) => {
+    AdiconarOperacao: async(sTipo:Boolean, fValor:number, sIdusuario:String) => {
         {            
            
             let response = await fetch('https://msm-api.onrender.com/entrada_saida',
@@ -145,7 +145,15 @@ export const api = {
             console.log(json);
             return json;
         }
-    }
+    },
+
+    Lista: async (ID: string) => {
+
+        let response = await fetch('https://msm-api.onrender.com/entrada_saida/' + ID)
+
+        let json = await response.json()
+            return (json)
+    },
 
     
 }
