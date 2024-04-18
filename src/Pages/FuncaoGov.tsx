@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import FuncaoCabecalho from "../Componentes/Cabecalho";
 import "../Componentes/estyle/estilonew.css"
+
 function FuncaoGov(){
+
+    const navigate = useNavigate();
+
+    const Navegar = () => {;
+       navigate('/cadastro');
+    }
+
     return(
+
         <div className="DivTela">
 
             <FuncaoCabecalho/>
@@ -51,7 +61,7 @@ function FuncaoGov(){
             </div>
 
             <label className="TxtFuncao">Agora sabendo das principais funções você pode aproveitar das nossas funcionalidades do site, mas primeiro vamos fazer seu cadastro:</label>
-            <br/><a href="/cadastro" className="ButtonFuncao">Faça seu Cadastro</a>
+            <br/><button onClick={Navegar} className="ButtonFuncao">Faça seu Cadastro</button>
 
         </div>
     )

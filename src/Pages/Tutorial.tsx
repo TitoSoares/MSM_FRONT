@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import FuncaoCabecalho from "../Componentes/Cabecalho";
 import "../Componentes/estyle/estilonew.css"
 
 function Tutorial(){
+
+    const navigate = useNavigate();
+
+    const Navegar = () => {;
+       navigate('/gov');
+    }
+
     return(
         <div className="DivTelona">
 
@@ -56,7 +64,7 @@ function Tutorial(){
                 <br />
                
                 <label className="TxtPasso">Na página Funções Gov redirecionaremos você até as principais funções do Gov.br</label>
-                <a href="/gov" className="ButtonTutorial">Funções Gov</a>
+                <button onClick={Navegar} className="ButtonTutorial">Funções Gov</button>
                 
             </div>   
 

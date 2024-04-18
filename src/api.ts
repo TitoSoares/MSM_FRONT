@@ -155,5 +155,24 @@ export const api = {
             return (json)
     },
 
-    
+    ExcluirOperação: async(ID:string) => {
+        {            
+           
+            let response = await fetch('https://msm-api.onrender.com/entrada_saida/' + ID,
+            {              
+                method: 'DELETE',
+                body: JSON.stringify
+                ({}),                  
+                headers: {              
+                    'Content-Type': 'application/json; charset=utf-8'
+                    }                
+               
+             }  
+             );
+            let json = await response.json();        
+   
+            console.log(json);
+            return json;
+        }
+    },
 }

@@ -33,7 +33,7 @@ function EntradaSaida(){
 
 
             let json = await api.AdiconarOperacao(operacao.toLowerCase() === "true", Number(valor), idUsuarioTratado);
-            console.log(json)
+            // console.log(json)
             if (json.id) {
                 alert('Operação Adicionado com sucesso!')    
                 CarregarHistorico() 
@@ -47,9 +47,40 @@ function EntradaSaida(){
             alert(error)   
         }
     }
+
+
     
     const [Lista, setLista] = useState<OperacaoType[]>([])
     const [ValorTotal, setValorTotal] = useState(0)
+    const [idsSelecionados, setIdsSelecionados] = useState<string[]>([]);
+
+    const handleSelecionarID = (id: string) => {
+        if (idsSelecionados.includes(id)) {
+            setIdsSelecionados(idsSelecionados.filter((selectedId) => selectedId !== id));
+        } else {
+            setIdsSelecionados([...idsSelecionados, id]);
+        }
+    };
+
+    const exibirIdsSelecionados = () => {
+        alert(`Ids selecionados: ${idsSelecionados.join(', ')}`);
+    }
+
+    const Deletar = async () => {
+        {
+            idsSelecionados.forEach(async idatual => {
+                let json = await api.ExcluirOperação(idatual);
+                console.log(json)
+                if (json.message) {
+                    alert(json.message)    
+                    CarregarHistorico() 
+                }
+            });
+            
+            
+    }
+    }
+
     const CarregarHistorico = async () => {
 
         const idUsuarioTratado: string = UsuarioLogadoCtx?.idusuario ?? '';
@@ -94,16 +125,21 @@ function EntradaSaida(){
                             <button onClick={handleAddOperation}>Enviar</button>
                         </div>
                         <div className="history">
-                            <p>Histórico:</p>
+                            <p><strong>Histórico:</strong></p>
+                            <div className="ab">
                             {Lista?Lista.map((Lista) => (
                                 <div key={Lista.ID}>
-                                    <input type="checkbox" />{Lista.TIPO?'Entrada':'Saida'}
-                                    {Lista.VALOR}
-                                    Valor: {ValorTotal} <button className="ButtonArea1">Delete</button>
+                                    <li className="te"> <input className="check" type="checkbox"
+                                    checked={idsSelecionados.includes(Lista.ID)}
+                                    onChange={() => handleSelecionarID(Lista.ID)}/>       {Lista.TIPO?'Entrada':'Saida'} no valor de R${Lista.VALOR}</li> 
                                 </div>
                             )):''}
-                            <br /><br /><br />
                             
+                            {Lista?                                 
+                             <div className="testestes"><strong>Valor Total:</strong> R${ValorTotal} <button className="ButtonArea1" onClick={Deletar}>Delete</button></div>:''  }
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

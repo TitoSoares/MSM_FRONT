@@ -44,10 +44,7 @@ function Login(){
     }
     
 
-    const AcessoDireto = () => {
-        UsuarioLogadoCtx?.setidusuario('54153135153135');
-       navigate('/Gerenciamento');
-    }
+
 
     return(
         <div className="DivTela">
@@ -81,8 +78,6 @@ function Login(){
                     <br />
                     <div className="DivBotoesLogin">
                         <button className="ButtonLogin" onClick={RealizarLogin}>Logar</button> 
-                        {msgApi}
-                        <button className="ButtonLogin" onClick={AcessoDireto}>Acesso</button>
                     </div>
 
                     <br/><br/>
